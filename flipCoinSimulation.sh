@@ -1,2 +1,12 @@
+#!/bin/bash -x
 
-echo "Welcome to flipCoinSimulator"
+isHeads=1
+randomCheck=$((RANDOM%2))
+
+if [ $randomCheck -eq $isHeads ]
+then
+        echo "Heads"
+else
+        echo "Trails"
+fi
+
