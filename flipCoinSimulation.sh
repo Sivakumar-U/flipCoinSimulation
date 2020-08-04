@@ -6,6 +6,8 @@ isHeads=1
 heads=0
 tails=0
 
+difference=0
+
 for((i=1; i<=40; i++))
 do
 
@@ -21,13 +23,24 @@ do
 
 	if [ $heads -eq 21 ]
 	then
-		echo "Number of heads $heads times"
-		echo "Number of tails $tails times"
+
+		while [ $difference -ne 2 ]
+		do
+			tails=$((tails+1))
+			difference=$((heads-tails))
+		done
 		break
+
 	elif [ $tails -eq 21 ]
 	then
-		echo "Number of heads $heads times"
-		echo "Number of tails $tails times"
+
+		while [ $difference -ne 2 ]
+		do
+			heads=$((heads+1))
+			difference=$((tails-heads))
+		done
 		break
 	fi
 done
+
+echo "Number of heads $heads times and Number of tails $tails times"
